@@ -1,5 +1,4 @@
-# School-governance
-## Ofsted ratings of mainstream schools by governance
+# Ofsted ratings of mainstream schools by governance
 
 The Government often state that they intend to improve schools by encouraging or compelling maintained schools to convert to academy status. The evidence for this claim is not that extensive; however, the Department for Education did one study in 2014, [“Performance of converter academies: an analysis of inspection outcomes 2012 to 2013”](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/269332/DFE-RR322_-_Converter_Academies_Ofsted.pdf) . We have examined the performance of schools and academies by their governance type to see how this picture has developed over the last decade.
 
