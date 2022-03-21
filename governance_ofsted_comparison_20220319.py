@@ -1,13 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Mar 16 08:39:19 2022
-
-@author: awby
-"""
-
 from pandas import read_excel, ExcelWriter
-from utils import now
-from os import mkdir
 from edubase import academies
 
 colors = {
@@ -17,8 +8,7 @@ colors = {
     '1 Outstanding': '#DCE6F2',
     }
 
-output_dir = f'output/governance_converters_ofsted_{now()}'
-mkdir(output_dir)
+output_dir = 'output'
 
 ofsted_original = read_excel(
     'https://assets.publishing.service.gov.uk/government/uploads/system/\
