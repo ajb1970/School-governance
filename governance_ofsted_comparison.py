@@ -290,11 +290,6 @@ for ofsted_group in ofsted_groups:
                     ['Previously less than good'].transform('sum')
                 )
             )
-    # short_summary.drop(columns=[
-    #     'Previously good or better', 'Previously less than good'
-    #     ],
-    #     inplace=True
-    #     )
 
     for col in summary.columns:
         summary[col+' count'] = summary[col]
