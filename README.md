@@ -6,6 +6,4 @@ We have taken Ofsted’s release of [Ofsted outcomes](https://assets.publishing.
 
 [edubase.py](edubase.py) downloads the latest version of school information from [Get Information About Schools](https://get-information-schools.service.gov.uk/Downloads).
 
-[utils.py](utils.py) is a small collection of utilities.
-
 [governance_ofsted_comparison_20220319.py](governance_ofsted_comparison_20220319.py) collates the Ofsted outcomes for schools by school governance type (local authority maintained, single-academy trust, multi-academy trust etc.) and saves Excel files to the [output folder](output).
