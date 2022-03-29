@@ -7,3 +7,5 @@ We have taken Ofsted’s release of [Ofsted outcomes](https://assets.publishing.
 [edubase.py](edubase.py) downloads the latest version of school information from [Get Information About Schools](https://get-information-schools.service.gov.uk/Downloads).
 
 [governance_ofsted_comparison.py](governance_ofsted_comparison.py) collates the Ofsted outcomes for schools by school governance type (local authority maintained, single-academy trust, multi-academy trust etc.) and saves Excel files to the [output folder](output).
+
+The final report is [What is the evidence for forcing schools into multi-academy trusts.pdf](What%20is%20the%20evidence%20for%20forcing%20schools%20into%20multi-academy%20trusts.pdf).
