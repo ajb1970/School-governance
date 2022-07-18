@@ -195,6 +195,31 @@ ofsted['Previous Ofsted'] = (
         )
     )
 
+sponsored_academy_list = [
+    'Academy Alternative Provision Sponsor Led',
+    'Academy Special Sponsor Led',
+    'Academy Sponsor Led',
+    ]
+converter_academy_list = [
+    'Academy Alternative Provision Converter',
+    'Academy Converter',
+    'Academy Special Converter',
+    ]
+free_school_list = [
+    'Free School',
+    'Free School - Alternative Provision',
+    'Free School Special',
+    ]
+maintained_school_list = [
+    'Community School',
+    'Community Special School',
+    'Foundation School',
+    'Foundation Special School',
+    'LA Nursery School',
+    'Pupil Referral Unit',
+    'Voluntary Aided School',
+    'Voluntary Controlled School'
+    ]
 maintained_2_sat = ofsted.loc[
     (ofsted['Previous Group Type'].isnull()) &
     (ofsted['Latest Group Type']=='Single-academy trust')
@@ -228,6 +253,66 @@ mat_nochange = ofsted.loc[
     (ofsted['Latest Group Type']=='Multi-academy trust') &
     (ofsted['Previous Group UID']==ofsted['Latest Group UID'])
     ]
+maintained_2_sponsored = ofsted.loc[
+    (
+        ofsted['School type at time of previous full inspection'].isin(
+            maintained_school_list
+            )
+        ) &
+    (   
+        ofsted['School type at time of latest full inspection'].isin(
+            sponsored_academy_list
+            )
+        )
+    ]
+sponsored_both = ofsted.loc[
+    (   
+        ofsted['School type at time of previous full inspection'].isin(
+            sponsored_academy_list
+            )
+        ) &
+    (   
+        ofsted['School type at time of latest full inspection'].isin(
+            sponsored_academy_list
+            )
+        )
+    ]
+maintained_2_converter = ofsted.loc[
+    (
+        ofsted['School type at time of previous full inspection'].isin(
+            maintained_school_list
+            )
+        ) &
+    (   
+        ofsted['School type at time of latest full inspection'].isin(
+            converter_academy_list
+            )
+        )
+    ]
+converter_both = ofsted.loc[
+    (   
+        ofsted['School type at time of previous full inspection'].isin(
+            converter_academy_list 
+            )
+        ) &
+    (   
+        ofsted['School type at time of latest full inspection'].isin(
+            converter_academy_list 
+            )
+        )
+    ]
+free_school_both = ofsted.loc[
+    (   
+        ofsted['School type at time of latest full inspection'].isin(
+            free_school_list
+            )
+        ) &
+    (   
+        ofsted['School type at time of previous full inspection'].isin(
+            free_school_list
+            )
+        )    
+    ]
 
 ofsted_groups = [
     {
@@ -260,6 +345,31 @@ ofsted_groups = [
         'data': mat_nochange,
         'title': 'with two judgements as multi-academy trusts',
         },
+    {
+        'filename': 'converter academies',
+        'data': converter_both,
+        'title': 'with two judgements as a converter academy',
+        },
+    {
+        'filename': 'maintained to converter',
+        'data': maintained_2_converter,
+        'title': 'that became a converter academy',
+        },
+    {
+        'filename': 'sponsor led academies',
+        'data': sponsored_both,
+        'title': 'with two judgements as a sponsor led academy',
+        },
+    {
+        'filename': 'maintained to sponsor led',
+        'data': maintained_2_sponsored,
+        'title': 'that were converted to a sponsor led academy',
+        },
+    {
+        'filename': 'free schools',
+        'data': free_school_both,
+        'title': 'with two judgements as a free school',
+        },
     ]
 
 for ofsted_group in ofsted_groups:
@@ -290,6 +400,11 @@ for ofsted_group in ofsted_groups:
                     ['Previously less than good'].transform('sum')
                 )
             )
+    # short_summary.drop(columns=[
+    #     'Previously good or better', 'Previously less than good'
+    #     ],
+    #     inplace=True
+    #     )
 
     for col in summary.columns:
         summary[col+' count'] = summary[col]
